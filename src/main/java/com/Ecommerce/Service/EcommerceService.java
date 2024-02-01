@@ -1,4 +1,6 @@
 package com.Ecommerce.Service;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -109,6 +111,16 @@ public class EcommerceService {
 			}
 		
 		return originalPrice;
+		
+	}
+
+	public List<ProductDetails> getAllProduct() {
+		List<ProductDetails>  allproducts = new ArrayList<>();
+		Iterable<ProductDetails> products = eCommerceRepository.findAll();
+		for (ProductDetails productDetails : products) {
+			allproducts.add(productDetails);
+		}
+		return allproducts;
 		
 	}
 	
